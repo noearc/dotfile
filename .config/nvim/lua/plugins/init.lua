@@ -1,0 +1,45 @@
+return{
+  {
+    "tpope/vim-fugitive",
+    cmd='Git'
+  },
+  {'jdhao/better-escape.vim', event = 'InsertEnter'},
+  "alec-gibson/nvim-tetris",
+  "nvim-treesitter/playground",
+ 	"aserowy/tmux.nvim",
+	"folke/tokyonight.nvim",
+	"sudormrfbin/cheatsheet.nvim",
+	"nvim-lua/popup.nvim",
+	"yamatsum/nvim-cursorline",
+	"mfussenegger/nvim-dap",
+	"nvim-lua/lsp-status.nvim",
+	"nvim-treesitter/nvim-treesitter",
+	"williamboman/mason-lspconfig.nvim",
+	"mfussenegger/nvim-lint",
+	"ThePrimeagen/vim-be-good",
+	"onsails/lspkind.nvim",
+  "lewis6991/gitsigns.nvim",
+  {"David-Kunz/gen.nvim",
+    config = function()
+      require("gen").model = "llama2"
+    end,
+  },
+  "folke/neodev.nvim",
+  {'nvimdev/hlsearch.nvim', event = 'BufRead', config = function()
+    require('hlsearch').setup()
+end},
+  {
+    "michaelb/sniprun",
+    branch = "master",
+
+    build = "sh install.sh",
+    -- do 'sh install.sh 1' if you want to force compile locally
+    -- (instead of fetching a binary from the github release). Requires Rust >= 1.65
+
+    config = function()
+      require("sniprun").setup({
+      -- your options
+      })
+    end,
+  },
+  }

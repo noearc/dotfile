@@ -1,0 +1,5 @@
+require("keymaps")
+require("config")
+require("plugins")
+require("colorscheme")
+require("global")
