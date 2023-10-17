@@ -3,6 +3,10 @@ return{
     "tpope/vim-fugitive",
     cmd='Git'
   },
+  "ppwwyyxx/vim-PinyinSearch",
+  -- "kkew3/jieba.vim",
+  "barklan/capslock.nvim",
+  "tjdevries/stackmap.nvim",
   {'jdhao/better-escape.vim', event = 'InsertEnter'},
   "alec-gibson/nvim-tetris",
   "nvim-treesitter/playground",
@@ -41,5 +45,31 @@ end},
       -- your options
       })
     end,
+  },
+  {"HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      -- This module contains a number of default definitions
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+    },
+  }
+    end
   },
   }

@@ -7,5 +7,13 @@ return {
   "nvim-2048",
   dev=true,
   dir="/home/n451/Plugins/nvim-2048"
+},{
+  "CapPinyin.nvim",
+  dev=true,
+  dir="/home/n451/Plugins/CapPinyin.nvim"
+},{
+  "PinyinSearch.nvim",
+  dev=true,
+  dir="/home/n451/Plugins/PinyinSearch.nvim"
 }
 }

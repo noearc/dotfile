@@ -5,6 +5,11 @@ return{ {
   config = function()
   local cmp = require("cmp")
   local lspkind = require('lspkind')
+cmp.setup.buffer({
+      sources = {
+      { name = "flypy" },
+      },
+    })
 
 cmp.setup({
 	snippet = {
@@ -94,4 +99,21 @@ end
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
+  {
+  'wasden/cmp-flypy.nvim',
+  run = "make",                    -- make flypy只编译小鹤音形， make wubi98只编译98五笔， make或make all全编译
+  after = "nvim-cmp",
+  config = function()              -- 配置config以修改默认配置
+    require("flypy").setup({
+      dict_name = "flypy",         -- 选择码表：flypy为小鹤音形，wubi98为98五笔
+      comment = true,              -- 在所有文件类型的注释下开启
+      filetype = { "markdown", },  -- 在指定文件类型下开启
+      num_filter = true,           -- 数字筛选
+      source_code = false,         -- 显示原码
+      space_select_enable = false, -- 空格上屏开关
+      space_select_enable_hint = "",             -- 空格上屏提示样式
+      space_select_switch_mappings = "<C-Space>", -- 空格上屏开关按键映射
+    })
+      end
+  }
 }
