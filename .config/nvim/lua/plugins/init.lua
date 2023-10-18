@@ -1,4 +1,5 @@
 return{
+  'davidgranstrom/telescope-scdoc.nvim',
   'David-Kunz/markid',
   -- {'ryleelyman/tidal.nvim',
   --   config = function()

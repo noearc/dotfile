@@ -3,11 +3,14 @@ local wk = require("which-key")
 local mappings = {
     ["]"] = { ":Gen<CR>", "Ask Gen"},
     ["?"] = { ":call PinyinSearch()<CR>", "PinyinSearch" },
-
+    s = {
+      name = "SC",
+      s = {"<cmd>SCNvimStart<cr>", "Start"},
+    },
     f = {
       name = "File", -- optional group name
       f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-      b = { "<cmd>Telescope file_browser<cr>", "Checkout Branch" },
+      b = { "<cmd>Telescope file_browser hidden=true<cr>", "Checkout Branch" },
       c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
       M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },

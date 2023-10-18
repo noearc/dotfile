@@ -40,18 +40,9 @@ return {
       }
     }
   }
-  require("telescope").load_extension "fzf"
-  require("telescope").load_extension "file_browser"
-
-  local builtin = require('telescope.builtin')
-  vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Find files"})
-  vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "Live grep"})
-  vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = "Buffers"})
-  vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Help tags"})
-  vim.keymap.set('n', '<leader>fd', ":Telescope diagnostics<CR>", {desc = "Diagnostics"}) 
-  vim.keymap.set('n', '<leader>fc', ":Telescope find_files cwd=~/.config/nvim<CR>", {desc = "Edit config"})
-  vim.keymap.set('n', '<leader>fr', ":Telescope file_browser hidden=true<CR>", {desc = "File browser"})
-  vim.keymap.set('n', '<leader>fo', ":Telescope<CR>", {desc = "File browser"})
+  require"telescope".load_extension "fzf"
+  require"telescope".load_extension "file_browser"
+  require'telescope'.load_extension('scdoc')
 end
 },
 	{
