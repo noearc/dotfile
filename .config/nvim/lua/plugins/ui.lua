@@ -38,14 +38,6 @@ end
     }
 	},
 	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
-	},
-	{
 		"utilyre/barbecue.nvim",
 		name = "barbecue",
 		version = "*",
@@ -57,4 +49,14 @@ end
       require("barbecue").setup()
     end
 	},
+  {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  opts = {
+  }
+  }
 }

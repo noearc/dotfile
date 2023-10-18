@@ -60,7 +60,7 @@ opt.splitright = true -- Put new windows right of current
 -- editing
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
-opt.timeoutlen = 300
+opt.timeoutlen = 500
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.undofile = true
 opt.undolevels = 10000

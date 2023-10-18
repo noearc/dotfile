@@ -1,8 +1,15 @@
 return{
+  'David-Kunz/markid',
+  -- {'ryleelyman/tidal.nvim',
+  --   config = function()
+  --     require('tidal').setup()
+  --   end,
+  -- },
   {
     "tpope/vim-fugitive",
     cmd='Git'
   },
+  {'navarasu/onedark.nvim' },
   "ppwwyyxx/vim-PinyinSearch",
   -- "kkew3/jieba.vim",
   "barklan/capslock.nvim",
@@ -17,7 +24,14 @@ return{
 	"yamatsum/nvim-cursorline",
 	"mfussenegger/nvim-dap",
 	"nvim-lua/lsp-status.nvim",
-	"nvim-treesitter/nvim-treesitter",
+	{
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        markid = { enable = true }
+      }
+    end
+  },
 	"williamboman/mason-lspconfig.nvim",
 	"mfussenegger/nvim-lint",
 	"ThePrimeagen/vim-be-good",
