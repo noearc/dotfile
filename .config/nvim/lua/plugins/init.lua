@@ -3,6 +3,10 @@ return{
   'David-Kunz/markid',
   'tidalcycles/vim-tidal',
   {
+    "aserowy/tmux.nvim",
+    config = function() return require("tmux").setup() end
+  },
+  {
     "tpope/vim-fugitive",
     cmd='Git'
   },
@@ -14,7 +18,6 @@ return{
   {'jdhao/better-escape.vim', event = 'InsertEnter'},
   "alec-gibson/nvim-tetris",
   "nvim-treesitter/playground",
- 	"aserowy/tmux.nvim",
 	"folke/tokyonight.nvim",
 	"sudormrfbin/cheatsheet.nvim",
 	"nvim-lua/popup.nvim",
