@@ -12,7 +12,7 @@ local mappings = {
       name = "File", -- optional group name
       f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
       b = { "<cmd>Telescope file_browser hidden=true<cr>", "Checkout Branch" },
-      c = { "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", "Colorscheme" },
+      c = { "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", "Config Files" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
       M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },

@@ -1,7 +1,5 @@
 return{
-  'davidgranstrom/telescope-scdoc.nvim',
   'David-Kunz/markid',
-  'tidalcycles/vim-tidal',
   {
     "aserowy/tmux.nvim",
     config = function() return require("tmux").setup() end
@@ -10,20 +8,30 @@ return{
     "tpope/vim-fugitive",
     cmd='Git'
   },
+  -- colorschemes
   {'navarasu/onedark.nvim' },
+	"folke/tokyonight.nvim",
+  -- Chinese input
   "ppwwyyxx/vim-PinyinSearch",
   -- "kkew3/jieba.vim",
-  "barklan/capslock.nvim",
+  
+  -- dev utils
   "tjdevries/stackmap.nvim",
+  "folke/neodev.nvim",
+
+  -- little utils
   {'jdhao/better-escape.vim', event = 'InsertEnter'},
-  "alec-gibson/nvim-tetris",
-  "nvim-treesitter/playground",
-	"folke/tokyonight.nvim",
 	"sudormrfbin/cheatsheet.nvim",
 	"nvim-lua/popup.nvim",
 	"yamatsum/nvim-cursorline",
+
+  -- to explore
 	"mfussenegger/nvim-dap",
 	"nvim-lua/lsp-status.nvim",
+  "lewis6991/gitsigns.nvim",
+
+  -- treesitter
+  "nvim-treesitter/playground",
 	{
     "nvim-treesitter/nvim-treesitter",
     config = function()
@@ -32,20 +40,23 @@ return{
       }
     end
   },
+
+  -- lsp and linting
 	"williamboman/mason-lspconfig.nvim",
 	"mfussenegger/nvim-lint",
-	"ThePrimeagen/vim-be-good",
 	"onsails/lspkind.nvim",
-  "lewis6991/gitsigns.nvim",
-  {"David-Kunz/gen.nvim",
+  {
+    "David-Kunz/gen.nvim",
     config = function()
       require("gen").model = "llama2"
     end,
   },
-  "folke/neodev.nvim",
-  {'nvimdev/hlsearch.nvim', event = 'BufRead', config = function()
-    require('hlsearch').setup()
-end},
+  {
+    'nvimdev/hlsearch.nvim', event = 'BufRead',
+    config = function()
+      require('hlsearch').setup()
+    end
+  },
   {
     "michaelb/sniprun",
     branch = "master",
@@ -59,31 +70,5 @@ end},
       -- your options
       })
     end,
-  },
-  {"HiPhish/rainbow-delimiters.nvim",
-    config = function()
-      -- This module contains a number of default definitions
-local rainbow_delimiters = require 'rainbow-delimiters'
-
-vim.g.rainbow_delimiters = {
-    strategy = {
-        [''] = rainbow_delimiters.strategy['global'],
-        vim = rainbow_delimiters.strategy['local'],
-    },
-    query = {
-        [''] = 'rainbow-delimiters',
-        lua = 'rainbow-blocks',
-    },
-    highlight = {
-        'RainbowDelimiterRed',
-        'RainbowDelimiterYellow',
-        'RainbowDelimiterBlue',
-        'RainbowDelimiterOrange',
-        'RainbowDelimiterGreen',
-        'RainbowDelimiterViolet',
-        'RainbowDelimiterCyan',
-    },
-  }
-    end
   },
   }
