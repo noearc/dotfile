@@ -1,11 +1,7 @@
 return{
   'davidgranstrom/telescope-scdoc.nvim',
   'David-Kunz/markid',
-  -- {'ryleelyman/tidal.nvim',
-  --   config = function()
-  --     require('tidal').setup()
-  --   end,
-  -- },
+  'tidalcycles/vim-tidal',
   {
     "tpope/vim-fugitive",
     cmd='Git'

@@ -64,5 +64,6 @@
   "vim-PinyinSearch": { "branch": "master", "commit": "2010ce281f95fcb9695fe6484e93b4cd1792ccd0" },
   "vim-be-good": { "branch": "master", "commit": "c290810728a4f75e334b07dc0f3a4cdea908d351" },
   "vim-fugitive": { "branch": "master", "commit": "99db68d9b3304580bd383da7aaee05c7a954a344" },
+  "vim-tidal": { "branch": "master", "commit": "e440fe5bdfe07f805e21e6872099685d38e8b761" },
   "which-key.nvim": { "branch": "main", "commit": "6962dae3565369363b59dd51fb206051555fcb4d" }
 }

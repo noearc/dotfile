@@ -1,4 +1,4 @@
-return {
+return {{
   "davidgranstrom/scnvim",
   config = function ()
     local scnvim = require 'scnvim'
@@ -20,6 +20,13 @@ return {
         ['<leader>sk'] = map('sclang.recompile'),
         ['<F1>'] = map_expr('s.boot'),
         ['<F2>'] = map_expr('s.meter'),
+        ['<F4>'] = map(function()
+                    scnvim.send('Server.killAll')
+                    scnvim.recompile()
+                end),
+        ['<F5>'] = map_expr('s.plotTree'),
+        ['<F6>'] = map_expr('s.meter'),
+
       },
       editor = {
         highlight = {
@@ -34,6 +41,19 @@ return {
       sclang = {
         cmd = '/mnt/d/audio-software/SuperCollider/sclang.exe'
       },
+      root = {
+        dir = "D:\\scnvim_assets"
+      }
     })
+    require('scnvim.postwin').on_open:append(function()
+            vim.opt_local.wrap = true
+    end)
   end
+},
+  -- {
+  --   'ryleelyman/tidal.nvim',
+  --   config = function()
+  --     require('tidal').setup()
+  --   end,
+  -- },
 }

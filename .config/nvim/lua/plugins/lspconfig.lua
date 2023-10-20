@@ -32,5 +32,9 @@ return {
     }
   }
   })
+
+  lspconfig.elmls.setup({
+    on_attach = on_attach,
+  })
 end
 }

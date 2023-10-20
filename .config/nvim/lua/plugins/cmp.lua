@@ -94,6 +94,9 @@ end
 		"L3MON4D3/LuaSnip",
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		build = "make install_jsregexp",
+    config = function ()
+     require'luasnip'.add_snippets('supercollider', require'scnvim.utils'.get_snippets())
+    end
 	},
 	"saadparwaiz1/cmp_luasnip",
 	"hrsh7th/cmp-nvim-lsp",
