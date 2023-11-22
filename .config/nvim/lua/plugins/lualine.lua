@@ -4,8 +4,8 @@ return {
     local function scstatus()
       if vim.bo.filetype == "supercollider" then
         local stat = vim.fn["scnvim#statusline#server_status"]()
-        local stat = stat:gsub("%%", "♪")
-        return stat
+        local stat1 = stat:gsub("%%", "♪")
+        return stat1
       else
         return ""
       end

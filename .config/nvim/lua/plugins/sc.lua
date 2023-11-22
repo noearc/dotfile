@@ -1,6 +1,7 @@
 return {
   {
   "davidgranstrom/scnvim",
+  -- ft = "supercollider",
     config = function ()
       local scnvim = require 'scnvim'
       local map = scnvim.map
@@ -48,8 +49,8 @@ return {
       end)
     end
   },
-  'davidgranstrom/telescope-scdoc.nvim',
-  'tidalcycles/vim-tidal',
+  {'davidgranstrom/telescope-scdoc.nvim', ft = "supercollider"},
+  {'tidalcycles/vim-tidal', ft = {"tidal"}},
   -- {
   --   'ryleelyman/tidal.nvim',
   --   config = function()

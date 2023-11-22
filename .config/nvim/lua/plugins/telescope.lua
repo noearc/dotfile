@@ -3,6 +3,7 @@ return {
   {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.3",
+  cmd = "Telescope",
 	dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
   require('telescope').setup{
@@ -47,7 +48,8 @@ end
 },
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
+    event = "BufRead",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", event = "BufRead"},
 }

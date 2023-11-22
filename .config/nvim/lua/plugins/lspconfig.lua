@@ -1,40 +1,93 @@
 return {
-  "neovim/nvim-lspconfig",
+  'neovim/nvim-lspconfig',
+  event = 'BufReadPre',
   config = function()
-  local on_attach = function()
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
-    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
-    vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
-    vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { buffer = 0 })
-    vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { buffer = 0 })
-  end
+    local on_attach = function()
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = 0 })
+      vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { buffer = 0 })
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = 0 })
+      vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { buffer = 0 })
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = 0 })
+      vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { buffer = 0 })
+      vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { buffer = 0 })
+    end
 
-  require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
-  })
+    require('neodev').setup()
 
-  local lspconfig = require("lspconfig")
+    local lspconfig = require('lspconfig')
 
-  lspconfig.pyright.setup({
-    on_attach = on_attach,
-  })
+    -- lspconfig.pyright.setup({
+    --   on_attach = on_attach,
+    -- })
 
-  lspconfig.lua_ls.setup({
-    on_attach = on_attach,
-    settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace"
-      }
-    }
-  }
-  })
-
-  lspconfig.elmls.setup({
-    on_attach = on_attach,
-  })
-end
+    lspconfig.ruby_ls.setup({
+      on_attach = on_attach,
+    })
+    lspconfig.lua_ls.setup({
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = {
+              'vim',
+              'screen',
+              'include',
+              'util',
+              '_path',
+              'params',
+              'clock',
+              'arc',
+              'audio',
+              'clock',
+              'controlspec',
+              'crow',
+              'core.crow.public',
+              'core.crow.quote',
+              'encoders',
+              'engine',
+              'gamepad',
+              'grid',
+              'hid',
+              'keyboard',
+              'metro',
+              'midi',
+              'norns',
+              'osc',
+              'params.control',
+              'paramset',
+              'poll',
+              'screen',
+              'script',
+              'softcut',
+            }, -- disables warning for using vim api
+            disable = { 'lowercase-global' }, -- disables "lowercase-global" diagnostic
+          },
+          completion = {
+            callSnippet = 'Replace',
+          },
+        },
+      },
+    })
+    lspconfig.biome.setup({})
+    lspconfig.elmls.setup({
+      on_attach = on_attach,
+    })
+    lspconfig.ocamllsp.setup({
+      on_attach = on_attach,
+    })
+    lspconfig.elixirls.setup({
+      on_attach = on_attach,
+      cmd = { 'elixir-ls' },
+    })
+    lspconfig.gopls.setup({
+      on_attach = on_attach,
+    })
+    lspconfig.clojure_lsp.setup({
+      on_attach = on_attach,
+    })
+    lspconfig.ruff_lsp.setup({
+      on_attach = on_attach,
+    })
+  end,
 }

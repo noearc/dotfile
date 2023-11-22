@@ -1,27 +1,36 @@
-return{{ "numToStr/Comment.nvim",
-  lazy = false,
-  config = function ()
-    require("Comment").setup()
-  end
-
-},
-{
-	"ggandor/leap.nvim",
-  config = function ()
-  require("leap").add_default_mappings()
-  end
-},
-{
-  "kylechui/nvim-surround",
-  config = function ()
-require("nvim-surround").setup()
-  end
-},
-{
-	"windwp/nvim-autopairs",
-		event = "InsertEnter",
-  config = function ()
-require("nvim-autopairs").setup()
-  end
-}
+return {
+  {
+    'numToStr/Comment.nvim',
+    event = 'BufRead',
+    config = function()
+      require('Comment').setup()
+    end,
+  },
+  {
+    'ggandor/leap.nvim',
+    event = 'BufReadPost',
+    config = function()
+      local leap = require('leap')
+      leap.add_default_mappings()
+      leap.add_repeat_mappings(';', ',', {
+        relative_directions = true,
+        modes = { 'n', 'x', 'o' },
+      })
+    end,
+  },
+  'ggandor/leap-ast.nvim',
+  -- "noearc/leap-zh.nvim",
+  {
+    'kylechui/nvim-surround',
+    event = 'BufReadPost',
+    config = function()
+      require('nvim-surround').setup()
+    end,
+  },
+  {
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require('nvim-lastplace').setup({})
+    end,
+  },
 }

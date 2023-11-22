@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>~/.config/nvim/lua/plugins/init.lua.html</title>
+<meta name="Generator" content="Vim/8.1">
+<meta name="plugin-version" content="vim9.0_v2">
+<meta name="syntax" content="none">
+<meta name="settings" content="number_lines,use_css,no_foldcolumn,expand_tabs,line_ids,pre_wrap,prevent_copy=,use_input_for_pc=none">
+<meta name="colorscheme" content="kanagawa">
+<style>
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #dcd7ba; background-color: #1f1f28; }
+body { font-family: monospace; color: #dcd7ba; background-color: #1f1f28; }
+* { font-size: 1em; }
+.LineNr { color: #54546d; background-color: #2a2a37; padding-bottom: 1px; }
+-->
+</style>
+
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span>return {
+<span id="L2" class="LineNr"> 2 </span>  -- 'sourcegraph/sg.nvim',
+<span id="L3" class="LineNr"> 3 </span>  'noearc/ws.nvim',
+<span id="L4" class="LineNr"> 4 </span>  {
+<span id="L5" class="LineNr"> 5 </span>    'nvim-neo-tree/neo-tree.nvim',
+<span id="L6" class="LineNr"> 6 </span>    branch = 'v3.x',
+<span id="L7" class="LineNr"> 7 </span>    dependencies = {
+<span id="L8" class="LineNr"> 8 </span>      'nvim-lua/plenary.nvim',
+<span id="L9" class="LineNr"> 9 </span>      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+<span id="L10" class="LineNr">10 </span>      'MunifTanjim/nui.nvim',
+<span id="L11" class="LineNr">11 </span>      -- &quot;3rd/image.nvim&quot;, -- Optional image support in preview window: See `# Preview Mode` for more information
+<span id="L12" class="LineNr">12 </span>    },
+<span id="L13" class="LineNr">13 </span>  },
+<span id="L14" class="LineNr">14 </span>  {
+<span id="L15" class="LineNr">15 </span>    'NeogitOrg/neogit',
+<span id="L16" class="LineNr">16 </span>    dependencies = {
+<span id="L17" class="LineNr">17 </span>      'nvim-lua/plenary.nvim', -- required
+<span id="L18" class="LineNr">18 </span>      'nvim-telescope/telescope.nvim', -- optional
+<span id="L19" class="LineNr">19 </span>      'sindrets/diffview.nvim', -- optional
+<span id="L20" class="LineNr">20 </span>      'ibhagwan/fzf-lua', -- optional
+<span id="L21" class="LineNr">21 </span>    },
+<span id="L22" class="LineNr">22 </span>    config = true,
+<span id="L23" class="LineNr">23 </span>  },
+<span id="L24" class="LineNr">24 </span>  { 'David-Kunz/markid', event = 'BufRead' },
+<span id="L25" class="LineNr">25 </span>  {
+<span id="L26" class="LineNr">26 </span>    'aserowy/tmux.nvim',
+<span id="L27" class="LineNr">27 </span>    config = function()
+<span id="L28" class="LineNr">28 </span>      return require('tmux').setup()
+<span id="L29" class="LineNr">29 </span>    end,
+<span id="L30" class="LineNr">30 </span>  },
+<span id="L31" class="LineNr">31 </span>  -- colorschemes
+<span id="L32" class="LineNr">32 </span>  { 'folke/tokyonight.nvim' },
+<span id="L33" class="LineNr">33 </span>  'mhartington/oceanic-next',
+<span id="L34" class="LineNr">34 </span>  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+<span id="L35" class="LineNr">35 </span>  'sainnhe/everforest',
+<span id="L36" class="LineNr">36 </span>  'rebelot/kanagawa.nvim',
+<span id="L37" class="LineNr">37 </span>
+<span id="L38" class="LineNr">38 </span>  -- little utils
+<span id="L39" class="LineNr">39 </span>  { 'jdhao/better-escape.vim', event = 'InsertEnter' },
+<span id="L40" class="LineNr">40 </span>  { 'sudormrfbin/cheatsheet.nvim', event = 'BufReadPost' },
+<span id="L41" class="LineNr">41 </span>  { 'nvim-lua/popup.nvim', event = 'BufRead' },
+<span id="L42" class="LineNr">42 </span>  { 'yamatsum/nvim-cursorline', event = 'BufRead' },
+<span id="L43" class="LineNr">43 </span>
+<span id="L44" class="LineNr">44 </span>  -- to explore
+<span id="L45" class="LineNr">45 </span>  { 'mfussenegger/nvim-dap', event = 'BufRead' },
+<span id="L46" class="LineNr">46 </span>  { 'nvim-lua/lsp-status.nvim', event = 'BufRead' },
+<span id="L47" class="LineNr">47 </span>  { 'lewis6991/gitsigns.nvim', event = 'BufRead' },
+<span id="L48" class="LineNr">48 </span>
+<span id="L49" class="LineNr">49 </span>  -- lsp and linting
+<span id="L50" class="LineNr">50 </span>  { 'mfussenegger/nvim-lint', event = 'bufread' },
+<span id="L51" class="LineNr">51 </span>  { 'onsails/lspkind.nvim', event = 'bufread' },
+<span id="L52" class="LineNr">52 </span>  {
+<span id="L53" class="LineNr">53 </span>    'michaelb/sniprun',
+<span id="L54" class="LineNr">54 </span>    branch = 'master',
+<span id="L55" class="LineNr">55 </span>    event = 'BufRead',
+<span id="L56" class="LineNr">56 </span>    build = 'sh install.sh',
+<span id="L57" class="LineNr">57 </span>    -- do 'sh install.sh 1' if you want to force compile locally
+<span id="L58" class="LineNr">58 </span>    -- (instead of fetching a binary from the github release). Requires Rust &gt;= 1.65
+<span id="L59" class="LineNr">59 </span>
+<span id="L60" class="LineNr">60 </span>    config = function()
+<span id="L61" class="LineNr">61 </span>      require('sniprun').setup({
+<span id="L62" class="LineNr">62 </span>        -- your options
+<span id="L63" class="LineNr">63 </span>      })
+<span id="L64" class="LineNr">64 </span>    end,
+<span id="L65" class="LineNr">65 </span>  },
+<span id="L66" class="LineNr">66 </span>}
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

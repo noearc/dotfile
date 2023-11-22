@@ -3,22 +3,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.PinyinSearch_Dict = '/home/n451/.local/share/nvim/lazy/vim-PinyinSearch/PinyinSearch.dict'
 
-vim.api.nvim_exec(
-  [[
-  function! s:myLocalDb()
-  let db = ZFVimIM_dbInit({
-      urDb',
-       })
-    call ZFVimIM_cloudRegister({
-    'mode' : 'local',
-    'dbId' : db['dbId'],
-    'repoPath' : '/home/n451', 
-    'dbFile' : '/pinyin.txt', 
-    'dbCountFile' : '/pinyin_count', 
-  })
-endfunction
-  ]],true)
-
 vim.g.neovide_fullscreen = true
 local opt = vim.opt
 opt.wrap = true

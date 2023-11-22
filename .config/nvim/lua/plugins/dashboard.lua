@@ -6,9 +6,6 @@ return {
   config = function()
     local db = require('dashboard')
     db.custom_footer = {
-  "",
-  "",
-  "https://github.com/nshen/learn-neovim-lua",
 }
 db.custom_header = {
     [[          ▀████▀▄▄              ▄█ ]],
