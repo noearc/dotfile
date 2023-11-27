@@ -9,17 +9,13 @@ return {
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = 0 })
       vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { buffer = 0 })
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = 0 })
-      vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { buffer = 0 })
-      vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { buffer = 0 })
+      vim.keymap.set('n', '<Up>', vim.diagnostic.goto_prev, { buffer = 0 })
+      vim.keymap.set('n', '<Down>', vim.diagnostic.goto_next, { buffer = 0 })
     end
 
     require('neodev').setup()
 
     local lspconfig = require('lspconfig')
-
-    -- lspconfig.pyright.setup({
-    --   on_attach = on_attach,
-    -- })
 
     lspconfig.ruby_ls.setup({
       on_attach = on_attach,
@@ -88,6 +84,12 @@ return {
     })
     lspconfig.ruff_lsp.setup({
       on_attach = on_attach,
+    })
+
+    lspconfig.ds_pinyin_lsp.setup({
+      init_options = {
+        db_path = '/home/n451/datas/dict.db3',
+      },
     })
   end,
 }

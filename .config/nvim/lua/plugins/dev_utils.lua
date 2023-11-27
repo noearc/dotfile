@@ -7,4 +7,11 @@ return {
     event = 'BufRead',
   },
   'tjdevries/vlog.nvim',
+  {
+    'nvim-neotest/neotest',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'antoinemadec/FixCursorHold.nvim',
+    },
+  },
 }

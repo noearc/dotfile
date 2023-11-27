@@ -4,45 +4,25 @@ return {
   --   dev=true,
   --   dir="/home/n451/Plugins/nvim-2048"
   -- },
-  {
-    'CapPinyin.nvim',
-    dev = true,
-    dir = '/home/n451/Plugins/CapPinyin.nvim',
-  },
-  {
-    'PinyinSearch.nvim',
-    dev = true,
-    dir = '/home/n451/Plugins/PinyinSearch.nvim',
+  { 'zh-helpers',
+  dir = '/home/n451/Plugins/zh-helpers.nvim'
   },
   {
     'lua_utils',
-    dev = true,
     dir = '/home/n451/lua_utils',
   },
-  {
-    'lil-term',
-    dir = '/home/n451/Plugins/lil-term'
-  },
-  {
-    'leap-zh',
-    -- dev = true,
-    dir = '/home/n451/Plugins/leap-zh',
-  },
   -- {
-  --   'flypy.nvim',
-  --   dev = true,
-  --   dir = '/home/n451/Plugins/flypy.nvim',
+  --   'leap-zh',
+  --   dir = '/home/n451/Plugins/leap-zh',
   -- },
-  {
-    'jieba-lua',
-    -- dev = true,
-    dir = '/home/n451/jieba-lua',
-  },
-  {
-    'jieba_nvim',
-    -- dev = true,
-    dir = '/home/n451/Plugins/jieba.nvim',
-  },
+  -- {
+  --   'jieba-lua',
+  --   dir = '/home/n451/jieba-lua',
+  -- },
+  -- {
+  --   'jieba_nvim',
+  --   dir = '/home/n451/Plugins/jieba.nvim',
+  -- },
   -- {
   --   'pangu.nvim',
   --   dir = 'home/n451/Plugins/pangu.nvim',
@@ -63,7 +43,7 @@ return {
         {
           dir = "/home/n451/remote-norns",
         }
-     ) 
+     )
     end
   },
 }

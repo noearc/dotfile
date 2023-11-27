@@ -24,10 +24,6 @@ return {
       })
     end,
   },
-  {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-  },
   { 'yamatsum/nvim-cursorline', event = 'BufRead' },
   { 'nvim-lua/lsp-status.nvim', event = 'BufRead' },
   { 'David-Kunz/markid', event = 'BufRead' },

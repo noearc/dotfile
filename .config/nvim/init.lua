@@ -6,5 +6,5 @@ end
 safeRequire("keymaps")
 safeRequire("config")
 safeRequire("plugins")
-safeRequire("colorscheme")
 safeRequire("global")
+safeRequire("tools")

@@ -1,4 +1,5 @@
--- require("which-key").setup()
+require("which-key").setup()
+
 local wk = require('which-key')
 local mappings = {
   [']'] = { ':Gen<CR>', 'Ask Gen' },

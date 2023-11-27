@@ -11,6 +11,7 @@ vim.g.mapleader = ' '
 -- command_mode = "c",
 local map = vim.keymap
 
+vim.keymap.set('n', '<leader>z', '<cmd>lua require"zh-count".count_chinese_words()<cr>', { noremap = true, silent = true })
 map.set('n', '<leader>nr', ":lua require'maiden'.reload_script()<CR>")
 map.set('n', 'tt',":.!fish<cr>")
 
