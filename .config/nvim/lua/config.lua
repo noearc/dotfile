@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.PinyinSearch_Dict = '/home/n451/.local/share/nvim/lazy/vim-PinyinSearch/PinyinSearch.dict'
 
-vim.g.neovide_fullscreen = true
 local opt = vim.opt
 opt.wrap = true
 opt.autowrite = true -- Enable auto write

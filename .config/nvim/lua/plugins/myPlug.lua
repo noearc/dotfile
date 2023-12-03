@@ -4,9 +4,8 @@ return {
   --   dev=true,
   --   dir="/home/n451/Plugins/nvim-2048"
   -- },
-  { 'zh-helpers',
-  dir = '/home/n451/Plugins/zh-helpers.nvim'
-  },
+  { 'zh-helpers', dir = '/home/n451/Plugins/zh-helpers.nvim' },
+  { 'cmp-register', dir = '/home/n451/Plugins/cmp-registers' },
   {
     'lua_utils',
     dir = '/home/n451/lua_utils',
@@ -38,12 +37,10 @@ return {
   {
     'maiden.nvim',
     dir = '/home/n451/Plugins/maiden.nvim',
-    config = function ()
-     require("maiden").setup(
-        {
-          dir = "/home/n451/remote-norns",
-        }
-     )
-    end
+    config = function()
+      require('maiden').setup({
+        dir = '/home/n451/remote-norns',
+      })
+    end,
   },
 }

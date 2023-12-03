@@ -4,7 +4,7 @@ return {
     'hrsh7th/nvim-cmp',
     config = function()
       local cmp = require('cmp')
-      local cmp_im = require('cmp_im')
+      -- local cmp_im = require('cmp_im')
       local lspkind = require('lspkind')
       cmp.setup({
         formatting = {
@@ -23,10 +23,7 @@ return {
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
-            vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
           end,
         },
         window = {
@@ -34,15 +31,18 @@ return {
           -- documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ['<Space>'] = cmp.mapping(cmp_im.select(), { 'i' }),
+          -- ['<Space>'] = cmp.mapping(cmp_im.select(), { 'i' }),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<Space>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
+          { name = 'registers' },
           { name = 'copilot' },
+          { name = 'emoji' },
+          { name = 'latex_symbols' },
           { name = 'nvim_lua' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
@@ -92,6 +92,8 @@ return {
       'hrsh7th/nvim-cmp',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-emoji',
+      'kdheepak/cmp-latex-symbols',
       -- 'yehuohan/cmp-im-zh',
     },
   },
@@ -109,25 +111,26 @@ return {
     event = 'bufread',
   },
   -- "noearc/cmp-im-flypy",
-  {
-    'yehuohan/cmp-im',
-    config = function()
-      local cmp_im = require('cmp_im')
-      cmp_im.setup({
-        -- Enable/Disable IM
-        enable = false,
-        -- IM tables path array
-        tables = {},
-        -- Function to format IM-key and IM-tex for completion display
-        format = function(key, text)
-          return vim.fn.printf('%-15S %s', text, key)
-        end,
-        -- Max number entries to show for completion of each table
-        maxn = 8,
-      })
-      vim.keymap.set({ 'n', 'v', 'c', 'i' }, '<M-;>', function()
-        vim.notify(string.format('IM is %s', cmp_im.toggle() and 'enabled' or 'disabled'))
-      end)
-    end,
-  },
+  -- {
+  --   'yehuohan/cmp-im',
+  --   config = function()
+  --     local cmp_im = require('cmp_im')
+  --     cmp_im.setup({
+  --       -- Enable/Disable IM
+  --       enable = false,
+  --       -- IM tables path array
+  --       tables = {},
+  --       -- Function to format IM-key and IM-tex for completion display
+  --       format = function(key, text)
+  --         return vim.fn.printf('%-15S %s', text, key)
+  --       end,
+  --       -- Max number entries to show for completion of each table
+  --       maxn = 8,
+  --     })
+  --     vim.keymap.set({ 'n', 'v', 'c', 'i' }, '<M-;>', function()
+  --       vim.notify(string.format('IM is %s', cmp_im.toggle() and 'enabled' or 'disabled'))
+  --     end)
+  --   end,
+  -- },
 }
+

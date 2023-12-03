@@ -14,7 +14,7 @@ return {
         }
       },
       preview_cutoff = 1,
-      file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+      -- file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
       grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
       qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
       preview = {
@@ -41,14 +41,14 @@ return {
     }
   }
   require"telescope".load_extension "fzf"
-  require"telescope".load_extension "file_browser"
+  -- require"telescope".load_extension "file_browser"
   require'telescope'.load_extension('scdoc')
 end
 },
-	{
-		"nvim-telescope/telescope-file-browser.nvim",
-    event = "BufRead",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-	},
+	-- {
+	-- 	"nvim-telescope/telescope-file-browser.nvim",
+ --    event = "BufRead",
+	-- 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	-- },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", event = "BufRead"},
 }

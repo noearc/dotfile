@@ -17,7 +17,7 @@ local mappings = {
     name = 'File', -- optional group name
     l = { '<cmd>Lazy<cr>', 'Lazy' },
     -- f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-    b = { '<cmd>Telescope file_browser hidden=true<cr>', 'Checkout Branch' },
+    b = { '<cmd>Oil<cr>', 'Browser' },
     f = { '<cmd>w<cr><cmd>Format<cr>', 'Format' },
     c = { '<cmd>Telescope find_files cwd=~/.config/nvim<cr>', 'Config Files' },
     h = { '<cmd>Telescope help_tags<cr>', 'Find Help' },

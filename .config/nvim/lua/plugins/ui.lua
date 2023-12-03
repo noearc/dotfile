@@ -15,17 +15,7 @@ return {
     end,
     opts = {},
   },
-  {
-    'kosayoda/nvim-lightbulb',
-    event = 'BufRead',
-    config = function()
-      require('nvim-lightbulb').setup({
-        autocmd = { enabled = true },
-      })
-    end,
-  },
   { 'yamatsum/nvim-cursorline', event = 'BufRead' },
-  { 'nvim-lua/lsp-status.nvim', event = 'BufRead' },
   { 'David-Kunz/markid', event = 'BufRead' },
   {
     'aserowy/tmux.nvim',

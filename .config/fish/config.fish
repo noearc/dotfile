@@ -4,7 +4,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 # begin; set -lx EDITOR neovim; crontab -e; end
+set -Ux OPENAI_API_KEY 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
 set -gx EDITOR /usr/bin/nvim
+alias zi "NVIM_APPNAME=zh-nvim nvim"
 alias maiden "maiden-remote-repl --host 192.168.43.179"
 alias bat "batcat"
 alias mvi "~/neov/bin/nvim"

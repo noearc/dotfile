@@ -17,8 +17,6 @@ require('lazy').setup({
     install = {
       -- install missing plugins on startup. This doesn't increase startup time.
       missing = false,
-      -- try to load one of these colorschemes when starting an installation during startup
-      colorscheme = { 'tokyonight' },
     },
     git = {
       -- url_format = 'https://ghproxy.com/https://github.com/%s.git',

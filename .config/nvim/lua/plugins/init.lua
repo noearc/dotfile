@@ -1,7 +1,99 @@
 return {
+  {
+    'gbprod/yanky.nvim',
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+  'junegunn/vim-peekaboo',
+  -- {
+  --   'folke/noice.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {
+  --     -- add any options here
+  --   },
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     'MunifTanjim/nui.nvim',
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     'rcarriga/nvim-notify',
+  --   },
+  --   config = function()
+  --     require('noice').setup({
+  --       lsp = {
+  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+  --         override = {
+  --           ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+  --           ['vim.lsp.util.stylize_markdown'] = true,
+  --           ['cmp.entry.get_documentation'] = true,
+  --         },
+  --       },
+  --       -- you can enable a preset for easier configuration
+  --       presets = {
+  --         bottom_search = true, -- use a classic bottom cmdline for search
+  --         command_palette = true, -- position the cmdline and popupmenu together
+  --         long_message_to_split = true, -- long messages will be sent to a split
+  --         inc_rename = false, -- enables an input dialog for inc-rename.nvim
+  --         lsp_doc_border = false, -- add a border to hover docs and signature help
+  --       },
+  --     })
+  --   end,
+  -- },
+  {
+    'smjonas/editree.nvim',
+    config = {},
+    dependencies = {
+      -- You can also extract your config for oil.nvim or your tree viewer into separate files,
+      -- lazy.nvim will load the config from there.
+      { 'stevearc/oil.nvim', config = {} },
+      'lambdalisue/fern.vim',
+    },
+  },
+  {
+    'meinside/openai.nvim',
+    dependencies = { { 'nvim-lua/plenary.nvim' } },
+    config = function()
+      require('openai').setup({
+        -- NOTE: these are default values:
+
+        --credentialsFilepath = '~/.config/openai-nvim.json',
+        --models = {
+        --  completeChat = 'gpt-3.5-turbo',
+        --  editCode = 'code-davinci-edit-001',
+        --  editText = 'text-davinci-edit-001',
+        --  moderation = 'text-moderation-latest',
+        --},
+        --timeout = 60 * 1000,
+      })
+    end,
+  },
+  {
+    'jackMort/ChatGPT.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('chatgpt').setup({})
+    end,
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    config = function()
+      require('oil').setup()
+      vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
+    end,
+  },
   'luk400/vim-lichess',
   'wsdjeg/ChineseLinter.vim',
-  { 'noearc/jieba.nvim', dependencies = { 'noearc/jieba-lua' } },
+  -- { 'noearc/jieba.nvim', dependencies = { 'noearc/jieba-lua' } },
   { 'noearc/leap-zh.nvim', dependencies = { 'noearc/jieba-lua' } },
   {
     'afreakk/unimpaired-which-key.nvim',
@@ -72,7 +164,12 @@ return {
     config = true,
   },
   -- colorschemes
-  { 'folke/tokyonight.nvim',config = function() vim.cmd('colorscheme tokyonight') end},
+  {
+    'folke/tokyonight.nvim',
+    config = function()
+      vim.cmd('colorscheme tokyonight')
+    end,
+  },
   -- little utils
   {
     'lewis6991/gitsigns.nvim',
