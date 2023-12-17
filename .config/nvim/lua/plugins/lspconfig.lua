@@ -26,6 +26,7 @@ return {
         Lua = {
           diagnostics = {
             globals = {
+              'same',
               'vim',
               'screen',
               'include',
@@ -85,7 +86,6 @@ return {
     lspconfig.ruff_lsp.setup({
       on_attach = on_attach,
     })
-
     lspconfig.ds_pinyin_lsp.setup({
       init_options = {
         db_path = '/home/n451/datas/dict.db3',

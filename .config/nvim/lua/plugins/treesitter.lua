@@ -3,6 +3,11 @@ return {
     'nvim-treesitter/nvim-treesitter',
     event = 'BufRead',
     config = function()
+      vim.filetype.add({
+        tidal = 'tidal',
+      })
+      -- local ft_to_parser = require('nvim-treesitter.parsers').filetype_to_parsername
+      -- ft_to_parser.tidal = 'haskell' -- the orx filetype will use the xml parser and queries.
       require('nvim-treesitter.configs').setup({
         highlight = {
           enable = true,

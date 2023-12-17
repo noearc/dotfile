@@ -1,4 +1,9 @@
 return {
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
+  },
   'rcarriga/nvim-notify',
   {
     'nvimdev/hlsearch.nvim',
@@ -15,6 +20,7 @@ return {
     end,
     opts = {},
   },
+  -- 'RRethy/vim-illuminate',
   { 'yamatsum/nvim-cursorline', event = 'BufRead' },
   { 'David-Kunz/markid', event = 'BufRead' },
   {
@@ -23,30 +29,10 @@ return {
       return require('tmux').setup()
     end,
   },
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   event = 'BufRead',
-  --   config = function()
-  --     require('gitsigns').setup()
-  --   end,
-  -- },
   {
     'folke/trouble.nvim',
     event = 'BufRead',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-  },
-  {
-    'utilyre/barbecue.nvim',
-    name = 'barbecue',
-    event = 'BufRead',
-    version = '*',
-    dependencies = {
-      'SmiteshP/nvim-navic',
-      'nvim-tree/nvim-web-devicons', -- optional dependency
-    },
-    config = function()
-      require('barbecue').setup()
-    end,
   },
   {
     'folke/which-key.nvim',

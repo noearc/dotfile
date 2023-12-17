@@ -1,48 +1,17 @@
 return {
+  'vim-test/vim-test',
+  'tpope/vim-fugitive',
   {
-    'gbprod/yanky.nvim',
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    'chentoast/marks.nvim',
+    config = function()
+      require('marks').setup({})
+    end,
+  },
+  {
+    'stevearc/conform.nvim',
+    opts = {},
   },
   'junegunn/vim-peekaboo',
-  -- {
-  --   'folke/noice.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {
-  --     -- add any options here
-  --   },
-  --   dependencies = {
-  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  --     'MunifTanjim/nui.nvim',
-  --     -- OPTIONAL:
-  --     --   `nvim-notify` is only needed, if you want to use the notification view.
-  --     --   If not available, we use `mini` as the fallback
-  --     'rcarriga/nvim-notify',
-  --   },
-  --   config = function()
-  --     require('noice').setup({
-  --       lsp = {
-  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-  --         override = {
-  --           ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-  --           ['vim.lsp.util.stylize_markdown'] = true,
-  --           ['cmp.entry.get_documentation'] = true,
-  --         },
-  --       },
-  --       -- you can enable a preset for easier configuration
-  --       presets = {
-  --         bottom_search = true, -- use a classic bottom cmdline for search
-  --         command_palette = true, -- position the cmdline and popupmenu together
-  --         long_message_to_split = true, -- long messages will be sent to a split
-  --         inc_rename = false, -- enables an input dialog for inc-rename.nvim
-  --         lsp_doc_border = false, -- add a border to hover docs and signature help
-  --       },
-  --     })
-  --   end,
-  -- },
   {
     'smjonas/editree.nvim',
     config = {},
@@ -54,36 +23,6 @@ return {
     },
   },
   {
-    'meinside/openai.nvim',
-    dependencies = { { 'nvim-lua/plenary.nvim' } },
-    config = function()
-      require('openai').setup({
-        -- NOTE: these are default values:
-
-        --credentialsFilepath = '~/.config/openai-nvim.json',
-        --models = {
-        --  completeChat = 'gpt-3.5-turbo',
-        --  editCode = 'code-davinci-edit-001',
-        --  editText = 'text-davinci-edit-001',
-        --  moderation = 'text-moderation-latest',
-        --},
-        --timeout = 60 * 1000,
-      })
-    end,
-  },
-  {
-    'jackMort/ChatGPT.nvim',
-    event = 'VeryLazy',
-    config = function()
-      require('chatgpt').setup({})
-    end,
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-    },
-  },
-  {
     'stevearc/oil.nvim',
     opts = {},
     config = function()
@@ -92,9 +31,6 @@ return {
     end,
   },
   'luk400/vim-lichess',
-  'wsdjeg/ChineseLinter.vim',
-  -- { 'noearc/jieba.nvim', dependencies = { 'noearc/jieba-lua' } },
-  { 'noearc/leap-zh.nvim', dependencies = { 'noearc/jieba-lua' } },
   {
     'afreakk/unimpaired-which-key.nvim',
     dependencies = { 'tpope/vim-unimpaired' },
@@ -105,21 +41,7 @@ return {
       wk.register(uwk.normal_and_visual_mode, { mode = { 'n', 'v' } })
     end,
   },
-  {
-    'tummetott/unimpaired.nvim',
-    config = function()
-      require('unimpaired').setup({
-        -- add any options here or leave empty
-      })
-    end,
-  },
-  {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {},
-  },
   'mbbill/undotree',
-  -- 'RRethy/vim-illuminate',
   'noearc/ws.nvim',
   {
     'echasnovski/mini.operators',
@@ -153,16 +75,6 @@ return {
     end,
     dependencies = 'kevinhwang91/promise-async',
   },
-  {
-    'NeogitOrg/neogit',
-    dependencies = {
-      'nvim-lua/plenary.nvim', -- required
-      'nvim-telescope/telescope.nvim', -- optional
-      'sindrets/diffview.nvim', -- optional
-      'ibhagwan/fzf-lua', -- optional
-    },
-    config = true,
-  },
   -- colorschemes
   {
     'folke/tokyonight.nvim',
@@ -171,6 +83,7 @@ return {
     end,
   },
   -- little utils
+  { 'jdhao/better-escape.vim', event = 'InsertEnter' },
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -234,6 +147,4 @@ return {
       })
     end,
   },
-  { 'jdhao/better-escape.vim', event = 'InsertEnter' },
-  { 'sudormrfbin/cheatsheet.nvim', event = 'BufReadPost' },
 }

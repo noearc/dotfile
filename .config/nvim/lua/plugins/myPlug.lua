@@ -6,6 +6,7 @@ return {
   -- },
   { 'zh-helpers', dir = '/home/n451/Plugins/zh-helpers.nvim' },
   { 'cmp-register', dir = '/home/n451/Plugins/cmp-registers' },
+  { 'tida-lua', dir = '/home/n451/tranquility-norns' },
   {
     'lua_utils',
     dir = '/home/n451/lua_utils',
